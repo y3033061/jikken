@@ -36,19 +36,19 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
-        m_joycons = JoyconManager.Instance.j;
+        /*m_joycons = JoyconManager.Instance.j;
 
         if (m_joycons == null || m_joycons.Count <= 0) return;
 
         m_joyconL = m_joycons.Find(c => c.isLeft);
         m_joyconR = m_joycons.Find(c => !c.isLeft);
         lock1 = 0;
-       
+       */
     }
 
     void Update()
     {
-        m_pressedButtonL = null;
+        /*m_pressedButtonL = null;
         m_pressedButtonR = null;
 
         if (m_joycons == null || m_joycons.Count <= 0) return;
@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_joyconR.SetRumble(160, 320, 0.6f, 200);
         }
+        */
 
         /*int cnt = 0;
         float tmp = 0;
@@ -114,9 +115,9 @@ public class PlayerMovement : MonoBehaviour
             moveV = Input.GetAxis("Vertical");
             jump = Input.GetAxis("Jump");         
                     
-            moveH = stick[0];
-            moveV = stick[1];
-            var accel = m_joyconL.GetAccel();
+            //moveH = stick[0];
+            //moveV = stick[1];
+            /*var accel = m_joyconL.GetAccel();
             if (m_pressedButtonL != null)
             {
                
@@ -180,14 +181,14 @@ public class PlayerMovement : MonoBehaviour
                     }
                 };
                 timer.Start();*/
-            }
+           /* }
             else
             {
                 jump = 0;
                 tmp = 0;
                 //lock1 = 1;
                 cnt = 0;
-            }
+            }*/
 
            
 
@@ -195,11 +196,11 @@ public class PlayerMovement : MonoBehaviour
         // Oculus Quest2‚Å“®‚©‚·
         else
         {
-            moveH = stick[0];
-            moveV = stick[1];
+            //moveH = stick[0];
+            //moveV = stick[1];
             //moveH = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick).x;
             //moveV = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick).y;
-            var accel = m_joyconL.GetAccel();
+            //var accel = m_joyconL.GetAccel();
 
         }
 
@@ -222,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(moveDir * Time.deltaTime * speed);
     }
-    private void OnGUI()
+    /*private void OnGUI()
     {
         var style = GUI.skin.GetStyle("label");
         style.fontSize = 24;
@@ -231,5 +232,5 @@ public class PlayerMovement : MonoBehaviour
         GUILayout.Label("time"+cnt);
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
-    }
+    }*/
 }
